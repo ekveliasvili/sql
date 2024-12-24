@@ -1,31 +1,106 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="farmersmarket.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="7306"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/><expanded_item id="4" parent="1"/></tab_structure><tab_browse><table title="customer_purchases" custom_title="0" dock_id="1" table="4,18:maincustomer_purchases"/><dock_state state="000000ff00000000fd0000000100000002000001d80000021ffc0100000001fb000000160064006f0063006b00420072006f00770073006500310100000000000001d80000011e00ffffff000001d80000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="104"/><column index="2" value="125"/><column index="3" value="300"/><column index="4" value="83"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="customer" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort><column index="2" mode="0"/></sort><column_widths><column index="1" value="89"/><column index="2" value="147"/><column index="3" value="145"/><column index="4" value="158"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="customer_purchases" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="80"/><column index="2" value="73"/><column index="3" value="91"/><column index="4" value="91"/><column index="5" value="62"/><column index="6" value="184"/><column index="7" value="119"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="postal_data" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="104"/><column index="2" value="49"/><column index="3" value="73"/><column index="4" value="77"/><column index="5" value="187"/><column index="6" value="126"/><column index="7" value="118"/><column index="8" value="91"/><column index="9" value="269"/><column index="10" value="274"/><column index="11" value="81"/><column index="12" value="115"/><column index="13" value="151"/><column index="14" value="138"/><column index="15" value="134"/><column index="16" value="241"/><column index="17" value="237"/><column index="18" value="152"/><column index="19" value="206"/><column index="20" value="300"/><column index="21" value="298"/><column index="22" value="300"/><column index="23" value="170"/><column index="24" value="233"/><column index="25" value="231"/><column index="26" value="236"/><column index="27" value="128"/><column index="28" value="174"/><column index="29" value="71"/><column index="30" value="75"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="product" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="80"/><column index="2" value="206"/><column index="3" value="93"/><column index="4" value="145"/><column index="5" value="124"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="vendor_booth_assignments" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="74"/><column index="2" value="106"/><column index="3" value="92"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="vendor_inventory" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="91"/><column index="2" value="62"/><column index="3" value="74"/><column index="4" value="81"/><column index="5" value="98"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1*">--CTE
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="farmersmarket.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser query pragmas" current="2"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="7306"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="4" parent="0"/><expanded_item id="6" parent="0"/><expanded_item id="8" parent="0"/><expanded_item id="9" parent="0"/><expanded_item id="10" parent="0"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/><expanded_item id="4" parent="1"/></tab_structure><tab_browse><table title="temp.product_units" custom_title="0" dock_id="2" table="4,13:tempproduct_units"/><dock_state state="000000ff00000000fd0000000100000002000002be0000021dfc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000000001c30000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000000002be0000010b00ffffff000002be0000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="assignment1" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="300"/><column index="2" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="104"/><column index="2" value="125"/><column index="3" value="300"/><column index="4" value="83"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="customer" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="89"/><column index="2" value="147"/><column index="3" value="145"/><column index="4" value="158"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="customer_purchases" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort><column index="2" mode="0"/></sort><column_widths><column index="1" value="80"/><column index="2" value="73"/><column index="3" value="91"/><column index="4" value="91"/><column index="5" value="62"/><column index="6" value="184"/><column index="7" value="119"/></column_widths><filter_values><column index="0" value="1"/><column index="1" value="7"/></filter_values><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="market_date_info" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="91"/><column index="2" value="85"/><column index="3" value="95"/><column index="4" value="91"/><column index="5" value="130"/><column index="6" value="123"/><column index="7" value="99"/><column index="8" value="108"/><column index="9" value="127"/><column index="10" value="130"/><column index="11" value="120"/><column index="12" value="128"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="postal_data" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="104"/><column index="2" value="49"/><column index="3" value="73"/><column index="4" value="77"/><column index="5" value="187"/><column index="6" value="126"/><column index="7" value="118"/><column index="8" value="91"/><column index="9" value="269"/><column index="10" value="274"/><column index="11" value="81"/><column index="12" value="115"/><column index="13" value="151"/><column index="14" value="138"/><column index="15" value="134"/><column index="16" value="241"/><column index="17" value="237"/><column index="18" value="152"/><column index="19" value="206"/><column index="20" value="300"/><column index="21" value="298"/><column index="22" value="300"/><column index="23" value="170"/><column index="24" value="233"/><column index="25" value="231"/><column index="26" value="236"/><column index="27" value="128"/><column index="28" value="174"/><column index="29" value="71"/><column index="30" value="75"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="product" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="80"/><column index="2" value="206"/><column index="3" value="93"/><column index="4" value="145"/><column index="5" value="124"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="product_category" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="144"/><column index="2" value="167"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="temp" name="product_units" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort><column index="6" mode="0"/></sort><column_widths><column index="1" value="80"/><column index="2" value="206"/><column index="3" value="93"/><column index="4" value="144"/><column index="5" value="124"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="temp" name="sales_value" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="91"/><column index="2" value="59"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="vendor" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="73"/><column index="2" value="170"/><column index="3" value="157"/><column index="4" value="178"/><column index="5" value="175"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="vendor_booth_assignments" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="74"/><column index="2" value="106"/><column index="3" value="92"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="vendor_inventory" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="91"/><column index="2" value="62"/><column index="3" value="74"/><column index="4" value="81"/><column index="5" value="98"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="assignment2.sql*" filename="/Users/evgeniakveliashvili/Desktop/DSI_projects/sql/02_activities/assignments/assignment2.sql">-- Reference to file &quot;/Users/evgeniakveliashvili/Desktop/DSI_projects/sql/02_activities/assignments/assignment2.sql&quot; (not supported by this version) --</sql><sql name="SQL 6*">SELECT
+ distinct p. product_id
+, p.product_name
+FROM product as p
+LEFT join vendor_inventory as v
+on p.product_id = v. product_id;
 
---calculate sales per vendor per day
-WITH vendor_daily_sales AS (
-	SELECT 
-	md.market_date
-	,market_day
-	,market_week
-	,market_year
-	,vendor_name
-	,sum(quantity*cost_to_customer_per_qty) as sales
 
-	FROM customer_purchases cp 
-	INNER JOIN vendor v 
-		ON v.vendor_id = cp.vendor_id
-	INNER JOIN market_date_info md
-		ON cp.market_date = md.market_date
-
-	GROUP BY md.market_date,v.vendor_id
-)
-
--- re-aggregate daily sales within each week number for each vendor
 SELECT 
-market_year,
-market_week,
-vendor_name,
-sum(sales)
+product_id
+, quantity as latest_quantity
+, market_date
+FROM (
 
-FROM vendor_daily_sales
-GROUP BY market_year,market_week,vendor_name
-</sql><current_tab id="0"/></tab_sql></sqlb_project>
+SELECT 
+product_id
+, quantity
+, market_date
+, row_number() OVER (PARTITION by product_id ORDER by market_date DESC ) as rank
+from vendor_inventory)
+WHERE rank = 1;
+
+
+
+SELECT  DISTINCT product_id
+from vendor_inventory
+ORDER by 1;
+
+SELECT DISTINCT product_id
+from TEMp. product_units
+order by 1;
+
+SELECT *
+, row_number() OVER (PARTITION by product_id ORDER by market_date DESC ) as rank
+from vendor_inventory)
+WHERE rank = 1;
+
+SELECT pu.product_id
+from  temp. product_units pu
+left join ( 
+SELECT *
+, row_number() OVER (PARTITION by product_id ORDER by market_date DESC ) as rank
+from vendor_inventory) as x
+on pu.product_id = x.product_id
+where rank = 1;
+
+update temp. product_units
+SET current_quantity = ( 
+SELECT coalesce (x.quantity, 0)  
+from (SELECT pu.product_id
+, x.quantity
+from  temp. product_units pu
+left join 
+(  SELECT *
+,row_number() OVER (PARTITION by product_id ORDER by market_date DESC ) as rank
+from vendor_inventory) as x
+on pu.product_id = x.product_id
+where rank = 1) y
+WHERE product_units.product_id = y.product_id)
+
+</sql><sql name="SQL 7*">UPDATE temp.product_units
+set current_quantity = (
+SELECT coalesce (y.quantity, 0)
+from (
+SELECT 
+p. product_id
+, p.product_name
+, r.quantity
+from product as p
+left join (
+SELECT 
+market_date
+, quantity
+,product_id
+,row_number() OVER (PARTITION by product_id ORDER by market_date DESC ) as rank
+from vendor_inventory) as r
+on  r.product_id = p.product_id
+where rank = 1) y
+WHERE product_units.product_id = y.product_id</sql><sql name="SQL 8*">SELECT 
+p. product_id
+, p.product_name
+, r.quantity
+from product as p
+left join (
+SELECT 
+market_date
+, quantity
+,product_id
+,row_number() OVER (PARTITION by product_id ORDER by market_date DESC ) as rank
+from vendor_inventory) as r
+on  r.product_id = p.product_id
+where rank = 1
+
+</sql><sql name="SQL 9*">UPDATE temp.product_units pu
+SET current_quantity = (
+    SELECT COALESCE(r.quantity, 0)
+    FROM (
+        SELECT 
+            vi.product_id,
+            vi.quantity,
+            ROW_NUMBER() OVER (PARTITION BY vi.product_id ORDER BY vi.market_date DESC) AS rank
+        FROM vendor_inventory vi
+    ) r
+    WHERE r.product_id = pu.product_id AND r.rank = 1
+);
+</sql><current_tab id="1"/></tab_sql></sqlb_project>

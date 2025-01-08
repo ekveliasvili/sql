@@ -43,6 +43,16 @@ SELECT   customer_id
 FROM  customer_purchases
 group by market_date);
 
+SELECT 
+    customer_id,
+    market_date,
+    DENSE_RANK() OVER (
+        PARTITION BY customer_id 
+        ORDER BY market_date
+    ) AS visit_number
+FROM customer_purchases
+GROUP BY customer_id, market_date;
+
 /* 2. Reverse the numbering of the query from a part so each customer’s most recent visit is labeled 1, 
 then write another query that uses this one as a subquery (or temp table) and filters the results to 
 only the customer’s most recent visit. */
@@ -84,14 +94,18 @@ Remove any trailing or leading whitespaces. Don't just use a case statement for 
 
 Hint: you might need to use INSTR(product_name,'-') to find the hyphens. INSTR will help split the column. */
  SELECT
- product_name
- , CASE WHEN 
- instr (product_name, '-') >0
- THEN
- substr (trim (product_name), 0, instr (product_name, '-') ) 
- ELSE NULL
- end as corrected_product_name
- FROM product;
+    product_name,
+    CASE 
+        WHEN INSTR(product_name, '-') > 0 
+        THEN TRIM(SUBSTR(product_name, INSTR(product_name, '-') +1) )
+        ELSE NULL
+    END AS description
+	,  CASE
+	 WHEN INSTR(product_name, '-') > 0 
+	 THEN substr (trim (product_name), 0, instr (product_name, '-') ) 
+	ELSE trim(product_name)
+	end as product_name_corrected
+FROM product;
 
 
 /* 2. Filter the query to show any product_size value that contain a number with REGEXP. */
@@ -222,7 +236,7 @@ VALUES (15, 'Apple Pie',  '10"', 3, 'unit', CURRENT_TIMESTAMP)
 
 HINT: If you don't specify a WHERE clause, you are going to have a bad time.*/
 DELETE FROM temp.product_units
-WHERE  product_id = 15
+WHERE  product_name = 'Apple Pie' and product_id  != 15;
 
 
 -- UPDATE
@@ -242,25 +256,11 @@ Finally, make sure you have a WHERE statement to update the right row,
 	you'll need to use product_units.product_id to refer to the correct row within the product_units table. 
 When you have all of these components, you can run the update statement. */
 
-UPDATE temp.product_units
-set current_quantity = (
-SELECT 
-coalesce (y.quantity, 0)
-from (
-SELECT 
-p. product_id
-, p.product_name
-, r.quantity
-from product as p
-left join (
-SELECT 
-market_date
-, quantity
-,product_id
-,row_number() OVER (PARTITION by product_id ORDER by market_date DESC ) as rank
-from vendor_inventory) as r
-on  r.product_id = p.product_id
-where rank = 1) y
-WHERE product_units.product_id = y.product_id)
-
-
+UPDATE product_units
+SET current_quantity = (
+    SELECT IFNULL(vi.quantity, 0)
+    FROM vendor_inventory as vi
+    WHERE vi.product_id = product_units.product_id
+    ORDER BY vi.market_date DESC
+    LIMIT 1
+);
